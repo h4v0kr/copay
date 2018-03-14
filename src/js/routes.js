@@ -226,6 +226,24 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
         controller: 'tabsController',
         templateUrl: 'views/tabs.html'
       })
+      .state('tabs.swap', {
+        url: '/swap',
+        views: {
+          'tab-swap': {
+            controller: 'tabSwapController',
+            templateUrl: 'views/tab-swap.html',
+          }
+        }
+      })
+      .state('tabs.radar', {
+        url: '/radar',
+        views: {
+          'tab-radar': {
+            controller: 'tabRadarController',
+            templateUrl: 'views/tab-radar.html',
+          }
+        }
+      })
       .state('tabs.home', {
         url: '/home/:fromOnboarding',
         views: {

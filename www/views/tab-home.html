@@ -1,6 +1,6 @@
 <ion-view id="tab-home" show-tabs>
   <ion-nav-bar class="bar-royal">
-    <ion-nav-title><img class="tab-home__logo" src="img/app/logo-negative.svg"></ion-nav-title>
+    <ion-nav-title>Leep.it</ion-nav-title>
   </ion-nav-bar>
 
   <ion-content>
@@ -10,6 +10,16 @@
      spinner="ios-small"
      on-refresh="onRefresh()">
    </ion-refresher>
+
+   <div class="list card important-message">
+     <div class="close-button" ng-click="serverMessage = null"><i class="icon ion-ios-close-empty"></i></div>
+     <i class="item big-icon-svg">
+      <img src="img/app/frog.png" width="100"/>
+     </i>
+
+     <div class="item alert">Welcome!</div>
+     <div class="item message">Welcome to the leep.it test wallet. This wallet includes support for atomic swaps and counterparty service discovery!</div>
+   </div>
 
    <div class="list card important-message ng-hide" ng-show="serverMessage">
      <div class="close-button" ng-click="serverMessage = null"><i class="icon ion-ios-close-empty"></i></div>
@@ -106,6 +116,20 @@
       </div>
     </div>
 
+    <div class="list card" ng-if="walletsBtc[0]">
+      <div class="item item-icon-right item-heading">
+        <img class="wallet-coin-logo" src="img/icon-ethereum.svg" width="18">
+        <span translate>Ethereum Wallets</span>
+        <a ui-sref="tabs.add"><i class="icon ion-ios-plus-empty list-add-button"></i></a>
+      </div>
+      <div>
+        <a class="item item-sub item-icon-left item-big-icon-left item-icon-right wallet"
+           ng-click="openWallet(wallet)">
+          <span ng-include="'views/includes/walletList.html'"></span>
+        </a>
+      </div>
+    </div>
+
     <div class="list card" ng-if="walletsBch[0]">
       <div class="item item-icon-right item-heading">
         <img class="wallet-coin-logo" src="img/bitcoin-cash-logo.svg" width="22">
@@ -121,10 +145,10 @@
       </div>
     </div>
 
-    <div class="ng-hide list card" ng-show="walletsBtc[0] && bitpayCardItems.length>0" ng-include="'views/includes/bitpayCardsCard.html'"></div>
+    <!--div class="ng-hide list card" ng-show="walletsBtc[0] && bitpayCardItems.length>0" ng-include="'views/includes/bitpayCardsCard.html'"></div>
     <div class="ng-hide list card" ng-show="walletsBtc[0] && buyAndSellItems.length>0" ng-include="'views/includes/buyAndSellCard.html'"></div>
     <div class="ng-hide list card" ng-show="homeIntegrations.length>0" ng-include="'views/includes/homeIntegrations.html'"></div>
-    <div class="ng-hide list card" ng-show="nextStepsItems.length>0 && !isWindowsPhoneApp" ng-include="'views/includes/nextSteps.html'"></div>
+    <div class="ng-hide list card" ng-show="nextStepsItems.length>0 && !isWindowsPhoneApp" ng-include="'views/includes/nextSteps.html'"></div-->
 
   </ion-content>
 </ion-view>
